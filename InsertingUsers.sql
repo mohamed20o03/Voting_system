@@ -1,30 +1,34 @@
 USE voting_system;
 
-INSERT INTO Countries (name, code) VALUES
-('United States', 'USA'),
-('Canada', 'CAN'),
-('United Kingdom', 'GBR'),
-('Australia', 'AUS');
 
-INSERT INTO States_Governorates (name, country_id) VALUES
-('California', 1),
-('New York', 1),
-('Texas', 1),
-('Florida', 1),
-('Ontario', 2),
-('British Columbia', 2),
-('England', 3),
-('Scotland', 3),
-('New South Wales', 4),
-('Victoria', 4);
+-- Insert Countries data
+INSERT INTO Countries (code, name) VALUES 
+('USA', 'United States of America'),
+('CAN', 'Canada'),
+('GBR', 'United Kingdom'),
+('AUS', 'Australia');
 
-INSERT INTO Cities (name, states_governorates_id) VALUES
+-- Insert States/Governorates data
+INSERT INTO States_Governorates (name, country_code) VALUES 
+('California', 'USA'),
+('New York', 'USA'),
+('Texas', 'USA'),
+('Florida', 'USA'),
+('Ontario', 'CAN'),
+('British Columbia', 'CAN'),
+('England', 'GBR'),
+('Scotland', 'GBR'),
+('New South Wales', 'AUS'),
+('Queensland', 'AUS');
+
+-- Insert Cities data
+INSERT INTO Cities (name, states_governorates_id) VALUES 
 ('Los Angeles', 1),
 ('San Francisco', 1),
 ('New York City', 2),
 ('Buffalo', 2),
 ('Houston', 3),
-('Austin', 3),
+('Dallas', 3),
 ('Miami', 4),
 ('Orlando', 4),
 ('Toronto', 5),
@@ -37,258 +41,168 @@ INSERT INTO Cities (name, states_governorates_id) VALUES
 ('Glasgow', 8),
 ('Sydney', 9),
 ('Newcastle', 9),
-('Melbourne', 10),
-('Geelong', 10);
+('Brisbane', 10),
+('Gold Coast', 10);
 
-INSERT INTO Districts (name, city_id) VALUES
+-- Insert Districts data
+INSERT INTO Districts (name, city_id) VALUES 
 ('Downtown', 1),
 ('Hollywood', 1),
-('Marina District', 2),
 ('Mission District', 2),
+('SoMa', 2),
 ('Manhattan', 3),
 ('Brooklyn', 3),
-('North Buffalo', 4),
-('South Buffalo', 4),
-('Downtown Houston', 5),
-('Midtown', 5),
-('South Congress', 6),
-('East Austin', 6),
+('Downtown', 5),
+('Uptown', 6),
 ('South Beach', 7),
-('Little Havana', 7),
-('Downtown Orlando', 8),
-('Lake Nona', 8),
-('Downtown Toronto', 9),
-('North York', 9),
-('Downtown Ottawa', 10),
-('Kanata', 10),
-('Downtown Vancouver', 11),
-('Kitsilano', 11),
-('Downtown Victoria', 12),
-('Oak Bay', 12),
-('Central London', 13),
-('Kensington', 13),
-('Northern Quarter', 14),
-('Ancoats', 14),
+('Disney Area', 8),
+('Downtown', 9),
+('East End', 10),
+('West End', 11),
+('James Bay', 12),
+('Westminster', 13),
+('City Centre', 14),
 ('Old Town', 15),
-('Leith', 15),
 ('West End', 16),
-('Merchant City', 16),
 ('CBD', 17),
-('Bondi', 17),
-('Newcastle East', 18),
-('Newcastle West', 18),
-('CBD', 19),
-('St Kilda', 19),
-('Geelong Central', 20),
-('Newtown', 20);
-
-INSERT INTO NationalityAddresses (country_id, states_governorates_id, city_id, district_id) VALUES
-(1, 1, 1, 1),
-(1, 1, 2, 3),
-(1, 2, 3, 5),
-(1, 2, 4, 7),
-(1, 3, 5, 9),
-(1, 3, 6, 11),
-(1, 4, 7, 13),
-(1, 4, 8, 15),
-(2, 5, 9, 17),
-(2, 5, 10, 19),
-(2, 6, 11, 21),
-(2, 6, 12, 23),
-(3, 7, 13, 25),
-(3, 7, 14, 27),
-(3, 8, 15, 29),
-(3, 8, 16, 31),
-(4, 9, 17, 33),
-(4, 9, 18, 35),
-(4, 10, 19, 37),
-(4, 10, 20, 39);
-
--- Job categories, fields, jobs, sectors, and organizations
-INSERT INTO JobCategories (name) VALUES
-('Technology'),
-('Healthcare'),
-('Education'),
-('Finance'),
-('Government');
-
-INSERT INTO Fields (name, category_id) VALUES
-('Software Development', 1),
-('Data Science', 1),
-('Medicine', 2),
-('Nursing', 2),
-('K-12 Education', 3),
-('Higher Education', 3),
-('Banking', 4),
-('Investment', 4),
-('Public Administration', 5),
-('Public Safety', 5);
-
-INSERT INTO Jobs (name, field_id) VALUES
-('Software Engineer', 1),
-('Web Developer', 1),
-('Data Analyst', 2),
-('Machine Learning Engineer', 2),
-('Physician', 3),
-('Surgeon', 3),
-('Registered Nurse', 4),
-('Nurse Practitioner', 4),
-('Teacher', 5),
-('Principal', 5),
-('Professor', 6),
-('Academic Dean', 6),
-('Bank Teller', 7),
-('Loan Officer', 7),
-('Financial Analyst', 8),
-('Investment Banker', 8),
-('City Manager', 9),
-('Policy Analyst', 9),
-('Police Officer', 10),
-('Firefighter', 10);
-
-INSERT INTO Sectors (name) VALUES
-('Public'),
-('Private'),
-('Non-profit'),
-('Academic');
-
-INSERT INTO Organizations (name, sector_id) VALUES
-('Google', 2),
-('Microsoft', 2),
-('City Hospital', 1),
-('Private Medical Center', 2),
-('Public School District', 1),
-('Private University', 4),
-('National Bank', 2),
-('Investment Firm', 2),
-('City Government', 1),
-('Federal Agency', 1);
-
--- Education levels
-INSERT INTO EducationLevels (level_name, description) VALUES
-('High School', 'Secondary education diploma'),
-('Associate Degree', '2-year undergraduate degree'),
-('Bachelor\'s Degree', '4-year undergraduate degree'),
-('Master\'s Degree', 'Graduate degree'),
-('Doctorate', 'Highest academic degree');
-
--- Users
-INSERT INTO Users (first_name, middle_name, last_name, gender, birth_date, email, phone, current_address, is_active, account_verified, profile_image) VALUES
-('John', 'David', 'Smith', 'male', '1985-03-15', 'john.smith@email.com', '555-1234', '123 Main St, Los Angeles', TRUE, TRUE, 'john_profile.jpg'),
-('Sarah', 'Lynn', 'Johnson', 'female', '1990-07-22', 'sarah.johnson@email.com', '555-2345', '456 Oak Ave, San Francisco', TRUE, TRUE, 'sarah_profile.jpg'),
-('Michael', NULL, 'Williams', 'male', '1978-11-05', 'michael.williams@email.com', '555-3456', '789 Broadway, New York', TRUE, TRUE, 'michael_profile.jpg'),
-('Emily', 'Rose', 'Brown', 'female', '1992-05-18', 'emily.brown@email.com', '555-4567', '101 Pine St, Buffalo', TRUE, TRUE, 'emily_profile.jpg'),
-('Robert', 'James', 'Jones', 'male', '1983-09-30', 'robert.jones@email.com', '555-5678', '202 Elm St, Houston', TRUE, TRUE, 'robert_profile.jpg'),
-('Jessica', 'Anne', 'Miller', 'female', '1995-01-12', 'jessica.miller@email.com', '555-6789', '303 Cedar Rd, Austin', TRUE, TRUE, 'jessica_profile.jpg'),
-('William', 'Thomas', 'Davis', 'male', '1980-06-24', 'william.davis@email.com', '555-7890', '404 Palm Ave, Miami', TRUE, TRUE, 'william_profile.jpg'),
-('Jennifer', NULL, 'Garcia', 'female', '1993-12-07', 'jennifer.garcia@email.com', '555-8901', '505 Orange Blvd, Orlando', TRUE, TRUE, 'jennifer_profile.jpg'),
-('David', 'Alan', 'Rodriguez', 'male', '1987-04-19', 'david.rodriguez@email.com', '555-9012', '606 Maple St, Toronto', TRUE, TRUE, 'david_profile.jpg'),
-('Lisa', 'Marie', 'Wilson', 'female', '1991-08-26', 'lisa.wilson@email.com', '555-0123', '707 Birch Ave, Ottawa', TRUE, TRUE, 'lisa_profile.jpg'),
-('James', 'Edward', 'Taylor', 'male', '1979-02-08', 'james.taylor@email.com', '555-1234', '808 Walnut Rd, Vancouver', TRUE, TRUE, 'james_profile.jpg'),
-('Emma', 'Claire', 'Anderson', 'female', '1994-10-31', 'emma.anderson@email.com', '555-2345', '909 Pine St, Victoria', TRUE, TRUE, 'emma_profile.jpg'),
-('Charles', NULL, 'Thomas', 'male', '1982-12-13', 'charles.thomas@email.com', '555-3456', '110 Oxford St, London', TRUE, TRUE, 'charles_profile.jpg'),
-('Sophia', 'Grace', 'Jackson', 'female', '1996-06-05', 'sophia.jackson@email.com', '555-4567', '211 Market St, Manchester', TRUE, TRUE, 'sophia_profile.jpg'),
-('Daniel', 'Joseph', 'White', 'male', '1984-11-17', 'daniel.white@email.com', '555-5678', '312 Royal Mile, Edinburgh', TRUE, TRUE, 'daniel_profile.jpg'),
-('Olivia', 'Jane', 'Harris', 'female', '1989-03-29', 'olivia.harris@email.com', '555-6789', '413 Buchanan St, Glasgow', TRUE, TRUE, 'olivia_profile.jpg'),
-('Matthew', 'Philip', 'Martin', 'male', '1981-07-02', 'matthew.martin@email.com', '555-7890', '514 George St, Sydney', TRUE, TRUE, 'matthew_profile.jpg'),
-('Ava', NULL, 'Thompson', 'female', '1997-01-14', 'ava.thompson@email.com', '555-8901', '615 Hunter St, Newcastle', TRUE, TRUE, 'ava_profile.jpg'),
-('Andrew', 'Ryan', 'Garcia', 'male', '1988-09-23', 'andrew.garcia@email.com', '555-9012', '716 Collins St, Melbourne', TRUE, TRUE, 'andrew_profile.jpg'),
-('Isabella', 'Marie', 'Robinson', 'female', '1993-05-08', 'isabella.robinson@email.com', '555-0123', '817 Ryrie St, Geelong', TRUE, TRUE, 'isabella_profile.jpg');
-
--- Nationalities (National IDs)
-INSERT INTO Nationalities (national_id, user_id, nationality_address_id) VALUES
-('USA123456789', 1, 1),
-('USA234567890', 2, 2),
-('USA345678901', 3, 3),
-('USA456789012', 4, 4),
-('USA567890123', 5, 5),
-('USA678901234', 6, 6),
-('USA789012345', 7, 7),
-('USA890123456', 8, 8),
-('CAN901234567', 9, 9),
-('CAN012345678', 10, 10),
-('CAN123456789', 11, 11),
-('CAN234567890', 12, 12),
-('GBR345678901', 13, 13),
-('GBR456789012', 14, 14),
-('GBR567890123', 15, 15),
-('GBR678901234', 16, 16),
-('AUS789012345', 17, 17),
-('AUS890123456', 18, 18),
-('AUS901234567', 19, 19),
-('AUS012345678', 20, 20);
-
--- User Education
-INSERT INTO UserEducation (user_id, education_level_id, major, start_date, end_date, is_current, gpa) VALUES
-(1, 3, 'Computer Science', '2003-09-01', '2007-06-01', FALSE, 3.75),
-(2, 4, 'Psychology', '2008-09-01', '2010-06-01', FALSE, 3.90),
-(3, 5, 'Physics', '1996-09-01', '2001-06-01', FALSE, 3.85),
-(4, 3, 'English Literature', '2010-09-01', '2014-06-01', FALSE, 3.70),
-(5, 3, 'Business Administration', '2001-09-01', '2005-06-01', FALSE, 3.60),
-(6, 4, 'Graphic Design', '2013-09-01', '2015-06-01', FALSE, 3.95),
-(7, 3, 'Engineering', '1998-09-01', '2002-06-01', FALSE, 3.80),
-(8, 3, 'Communications', '2011-09-01', '2015-06-01', FALSE, 3.75),
-(9, 4, 'Economics', '2005-09-01', '2007-06-01', FALSE, 3.70),
-(10, 3, 'Nursing', '2009-09-01', '2013-06-01', FALSE, 3.85),
-(11, 5, 'Mathematics', '1997-09-01', '2002-06-01', FALSE, 3.90),
-(12, 4, 'Public Health', '2012-09-01', '2014-06-01', FALSE, 3.80),
-(13, 3, 'History', '2000-09-01', '2004-06-01', FALSE, 3.65),
-(14, 3, 'Marketing', '2014-09-01', '2018-06-01', FALSE, 3.75),
-(15, 4, 'International Relations', '2002-09-01', '2004-06-01', FALSE, 3.70),
-(16, 3, 'Biology', '2007-09-01', '2011-06-01', FALSE, 3.80),
-(17, 5, 'Chemistry', '1999-09-01', '2004-06-01', FALSE, 3.85),
-(18, 3, 'Art History', '2015-09-01', '2019-06-01', FALSE, 3.90),
-(19, 4, 'Urban Planning', '2006-09-01', '2008-06-01', FALSE, 3.75),
-(20, 3, 'Environmental Science', '2011-09-01', '2015-06-01', FALSE, 3.70);
-
--- Job Enrollments
-INSERT INTO EnrolledIN (user_id, job_id, organization_id, seniority_level, start_date, end_date) VALUES
-(1, 1, 1, 'Senior', '2007-07-01', NULL),
-(2, 3, 1, 'Mid Level', '2010-07-01', NULL),
-(3, 11, 6, 'Lead', '2001-08-01', NULL),
-(4, 9, 5, 'Mid Level', '2014-07-01', NULL),
-(5, 17, 9, 'Manager', '2005-08-01', NULL),
-(6, 2, 2, 'Junior', '2015-07-01', NULL),
-(7, 15, 8, 'Senior', '2002-08-01', NULL),
-(8, 9, 5, 'Junior', '2015-08-01', NULL),
-(9, 13, 7, 'Mid Level', '2007-08-01', NULL),
-(10, 7, 3, 'Senior', '2013-07-01', NULL),
-(11, 4, 2, 'Lead', '2002-09-01', NULL),
-(12, 8, 4, 'Mid Level', '2014-08-01', NULL),
-(13, 18, 10, 'Director', '2004-09-01', NULL),
-(14, 14, 7, 'Junior', '2018-07-01', NULL),
-(15, 19, 9, 'Senior', '2004-08-01', NULL),
-(16, 7, 4, 'Mid Level', '2011-08-01', NULL),
-(17, 6, 3, 'Executive', '2004-09-01', NULL),
-(18, 2, 1, 'Entry Level', '2019-07-01', NULL),
-(19, 15, 8, 'Manager', '2008-09-01', NULL),
-(20, 9, 6, 'Junior', '2015-08-01', NULL);
-
--- Election Types
-INSERT INTO ElectionTypes (type_name, vote_count_method, max_choices, description) VALUES
-('ONE_CHOICE', 'POPULAR_VOTE', 1, 'One choice per voter, determined by popular vote'),
-('ONE_CHOICE', 'ELECTORAL_COLLEGE', 1, 'One choice per voter, determined by electoral college'),
-('MULTI_CHOICE', 'POPULAR_VOTE', 2, 'Up to two choices per voter, determined by popular vote'),
-('REFERENDUM', 'POPULAR_VOTE', 1, 'Yes/No referendum, determined by popular vote');
-
--- Elections
-INSERT INTO Elections (election_name, type_id, start_date, end_date, description, status, created_by, total_voters) VALUES
-('Presidential Election 2024', 1, '2024-11-03 07:00:00', '2024-11-03 20:00:00', 'National presidential election by popular vote', 'COMPLETED', 1, 20),
-('Gubernatorial Election 2024', 2, '2024-11-03 07:00:00', '2024-11-03 20:00:00', 'State governor election using electoral college', 'COMPLETED', 3, 20),
-('City Council Election 2024', 3, '2024-10-15 07:00:00', '2024-10-15 20:00:00', 'City council election with multiple seats', 'COMPLETED', 5, 20),
-('Infrastructure Referendum', 4, '2024-09-01 07:00:00', '2024-09-01 20:00:00', 'Referendum on city infrastructure project', 'COMPLETED', 13, 15);
+('Northern Beaches', 18),
+('Central', 19),
+('Surfers Paradise', 20);
 
 
+-- Insert 30 Users data
+INSERT INTO Users (first_name, middle_name, last_name, gender, birth_date, email, password, phone, current_address, account_verified, profile_image) VALUES 
+('John', 'A', 'Smith', 'male', '1985-04-12', 'john.smith@email.com', SHA2('password123', 256), '555-123-4567', '123 Main St', TRUE, 'profile1.jpg'),
+('Jane', NULL, 'Doe', 'female', '1990-07-22', 'jane.doe@email.com', SHA2('password456', 256), '555-234-5678', '456 Elm St', TRUE, 'profile2.jpg'),
+('Michael', 'B', 'Johnson', 'male', '1978-11-30', 'michael.johnson@email.com', SHA2('password789', 256), '555-345-6789', '789 Oak St', TRUE, 'profile3.jpg'),
+('Emily', 'C', 'Williams', 'female', '1992-03-15', 'emily.williams@email.com', SHA2('passwordabc', 256), '555-456-7890', '101 Pine St', TRUE, 'profile4.jpg'),
+('David', NULL, 'Brown', 'male', '1983-09-05', 'david.brown@email.com', SHA2('passworddef', 256), '555-567-8901', '202 Cedar St', TRUE, 'profile5.jpg'),
+('Sarah', 'E', 'Miller', 'female', '1995-06-18', 'sarah.miller@email.com', SHA2('passwordghi', 256), '555-678-9012', '303 Birch St', TRUE, 'profile6.jpg'),
+('Robert', 'F', 'Wilson', 'male', '1980-12-22', 'robert.wilson@email.com', SHA2('passwordjkl', 256), '555-789-0123', '404 Maple St', TRUE, 'profile7.jpg'),
+('Jennifer', NULL, 'Moore', 'female', '1988-02-28', 'jennifer.moore@email.com', SHA2('passwordmno', 256), '555-890-1234', '505 Spruce St', TRUE, 'profile8.jpg'),
+('William', 'H', 'Taylor', 'male', '1975-08-14', 'william.taylor@email.com', SHA2('passwordpqr', 256), '555-901-2345', '606 Walnut St', TRUE, 'profile9.jpg'),
+('Elizabeth', 'I', 'Anderson', 'female', '1993-05-07', 'elizabeth.anderson@email.com', SHA2('passwordstu', 256), '555-012-3456', '707 Cherry St', TRUE, 'profile10.jpg'),
+('James', NULL, 'Thomas', 'male', '1982-01-25', 'james.thomas@email.com', SHA2('passwordvwx', 256), '555-987-6543', '808 Aspen St', FALSE, 'profile11.jpg'),
+('Patricia', 'K', 'Jackson', 'female', '1987-10-17', 'patricia.jackson@email.com', SHA2('passwordyz1', 256), '555-876-5432', '909 Redwood St', TRUE, 'profile12.jpg'),
+('Richard', 'L', 'White', 'male', '1979-04-09', 'richard.white@email.com', SHA2('password234', 256), '555-765-4321', '110 Fir St', TRUE, 'profile13.jpg'),
+('Linda', NULL, 'Harris', 'female', '1991-11-03', 'linda.harris@email.com', SHA2('password567', 256), '555-654-3210', '211 Sequoia St', TRUE, 'profile14.jpg'),
+('Charles', 'N', 'Martin', 'male', '1984-07-29', 'charles.martin@email.com', SHA2('password890', 256), '555-543-2109', '312 Sycamore St', TRUE, 'profile15.jpg'),
+('Barbara', 'O', 'Thompson', 'female', '1996-02-12', 'barbara.thompson@email.com', SHA2('passwordabc', 256), '555-432-1098', '413 Willow St', FALSE, 'profile16.jpg'),
+('Joseph', NULL, 'Garcia', 'male', '1981-08-23', 'joseph.garcia@email.com', SHA2('passworddef', 256), '555-321-0987', '514 Beech St', TRUE, 'profile17.jpg'),
+('Margaret', 'Q', 'Martinez', 'female', '1989-03-19', 'margaret.martinez@email.com', SHA2('passwordghi', 256), '555-210-9876', '615 Hickory St', TRUE, 'profile18.jpg'),
+('Thomas', 'R', 'Robinson', 'male', '1976-06-05', 'thomas.robinson@email.com', SHA2('passwordjkl', 256), '555-109-8765', '716 Alder St', TRUE, 'profile19.jpg'),
+('Dorothy', NULL, 'Clark', 'female', '1994-01-30', 'dorothy.clark@email.com', SHA2('passwordmno', 256), '555-098-7654', '817 Poplar St', TRUE, 'profile20.jpg'),
+('Daniel', 'T', 'Rodriguez', 'male', '1983-12-11', 'daniel.rodriguez@email.com', SHA2('passwordpqr', 256), '555-198-7654', '918 Elm St', TRUE, 'profile21.jpg'),
+('Lisa', 'U', 'Lewis', 'female', '1990-09-25', 'lisa.lewis@email.com', SHA2('passwordstu', 256), '555-298-7654', '919 Oak St', FALSE, 'profile22.jpg'),
+('Paul', NULL, 'Lee', 'male', '1977-05-08', 'paul.lee@email.com', SHA2('passwordvwx', 256), '555-398-7654', '920 Pine St', TRUE, 'profile23.jpg'),
+('Nancy', 'W', 'Walker', 'female', '1993-04-14', 'nancy.walker@email.com', SHA2('passwordyz1', 256), '555-498-7654', '921 Cedar St', TRUE, 'profile24.jpg'),
+('Mark', 'X', 'Hall', 'male', '1982-02-27', 'mark.hall@email.com', SHA2('password234', 256), '555-598-7654', '922 Birch St', TRUE, 'profile25.jpg'),
+('Sandra', NULL, 'Allen', 'female', '1986-12-20', 'sandra.allen@email.com', SHA2('password567', 256), '555-698-7654', '923 Maple St', TRUE, 'profile26.jpg'),
+('Kenneth', 'Z', 'Young', 'male', '1980-10-03', 'kenneth.young@email.com', SHA2('password890', 256), '555-798-7654', '924 Spruce St', TRUE, 'profile27.jpg'),
+('Helen', 'AA', 'Hernandez', 'female', '1995-07-16', 'helen.hernandez@email.com', SHA2('passwordabc', 256), '555-898-7654', '925 Walnut St', FALSE, 'profile28.jpg'),
+('George', NULL, 'King', 'male', '1979-03-01', 'george.king@email.com', SHA2('passworddef', 256), '555-998-7654', '926 Cherry St', TRUE, 'profile29.jpg'),
+('Donna', 'CC', 'Wright', 'female', '1988-11-09', 'donna.wright@email.com', SHA2('passwordghi', 256), '555-098-7655', '927 Aspen St', TRUE, 'profile30.jpg');
 
--- Election Eligibility
-INSERT INTO ElectionEligibility (election_id, attribute, condition_type, value) VALUES
-(1, 'age', 'GREATER_THAN', '18'),
-(1, 'country_id', 'EQUALS', '1'),
-(2, 'age', 'GREATER_THAN', '18'),
-(2, 'country_id', 'EQUALS', '1'),
-(3, 'age', 'GREATER_THAN', '18'),
-(3, 'country_id', 'IN', '1,2,3,4'),
-(4, 'age', 'GREATER_THAN', '18'),
-(4, 'country_id', 'IN', '1,2');
 
+-- Insert location data for users
+INSERT INTO locates (user_id, district_id, national_id) VALUES 
+(1, 1, 'USA-123456789'),
+(2, 3, 'USA-234567890'),
+(3, 5, 'USA-345678901'),
+(4, 7, 'USA-456789012'),
+(5, 9, 'CAN-567890123'),
+(6, 11, 'CAN-678901234'),
+(7, 13, 'GBR-789012345'),
+(8, 15, 'GBR-890123456'),
+(9, 17, 'AUS-901234567'),
+(10, 19, 'AUS-012345678'),
+(11, 2, 'USA-123456780'),
+(12, 4, 'USA-234567801'),
+(13, 6, 'USA-345678012'),
+(14, 8, 'USA-456780123'),
+(15, 10, 'CAN-567801234'),
+(16, 12, 'CAN-678012345'),
+(17, 14, 'GBR-780123456'),
+(18, 16, 'GBR-801234567'),
+(19, 18, 'AUS-012345679'),
+(20, 20, 'AUS-123456788'),
+(21, 1, 'USA-223456789'),
+(22, 3, 'USA-334567890'),
+(23, 5, 'USA-445678901'),
+(24, 7, 'USA-556789012'),
+(25, 9, 'CAN-667890123'),
+(26, 11, 'CAN-778901234'),
+(27, 13, 'GBR-889012345'),
+(28, 15, 'GBR-990123456'),
+(29, 17, 'AUS-001234567'),
+(30, 19, 'AUS-112345678');
+
+
+-- Insert 4 different elections as requested
+-- Election 1: Popular vote with 3 candidates and 4 groups
+INSERT INTO Elections (election_name, start_date, end_date, description, status, created_at, created_by, vote_count_method, type_name, max_choices) VALUES 
+('City Council Election 2025', '2025-06-01 08:00:00', '2025-06-01 20:00:00', 'Election for city council members', 'SCHEDULED', '2025-04-01 09:00:00', 1, 'POPULAR_VOTE', 'ONE_CHOICE', 1);
+
+-- Election 2: Popular vote with max_choice=2 from 4 candidates and 3 groups
+INSERT INTO Elections (election_name, start_date, end_date, description, status, created_at, created_by, vote_count_method, type_name, max_choices) VALUES 
+('Election 2025', '2025-07-15 08:00:00', '2025-07-15 20:00:00', NULL, 'SCHEDULED', '2025-05-15 09:00:00', 2, 'POPULAR_VOTE', 'MULTI_CHOICE', 2);
+
+-- Election 3: Electoral college vote with 4 groups
+INSERT INTO Elections (election_name, start_date, end_date, description, status, created_at, created_by, vote_count_method, type_name, max_choices) VALUES 
+('Presidential Election 2024', '2024-11-03 07:00:00', '2024-11-03 21:00:00', 'Election for president of the country', 'COMPLETED', '2024-01-15 09:00:00', 3, 'ELECTORAL_COLLEGE', 'ONE_CHOICE', 1);
+
+-- Election 4: Referendum (popular vote)
+INSERT INTO Elections (election_name, start_date, end_date, description, status, created_at, created_by, vote_count_method, type_name, max_choices) VALUES 
+('Public Transit Funding Referendum', '2025-08-10 08:00:00', '2025-08-10 20:00:00', 'Referendum on increasing funding for public transportation', 'SCHEDULED', '2025-06-10 09:00:00', 4, 'POPULAR_VOTE', 'REFERENDUM', 1);
+
+-- Insert election groups for each election
+-- Election 1 groups (4 groups)
+INSERT INTO ElectionGroups (election_id, group_name, score, description) VALUES
+(1, 'North District', 1, 'Voters from the northern district of the city'),
+(1, 'South District', 1, 'Voters from the southern district of the city'),
+(1, 'East District', 1, 'Voters from the eastern district of the city'),
+(1, 'West District', 1, 'Voters from the western district of the city');
+
+-- Election 2 groups (3 groups)
+INSERT INTO ElectionGroups (election_id, group_name, score, description) VALUES
+(2, 'Elementary School Parents', 1, 'Parents of elementary school students'),
+(2, 'Middle School Parents', 1, 'Parents of middle school students'),
+(2, 'High School Parents', 1, 'Parents of high school students');
+
+-- Election 3 groups (4 groups - electoral college)
+INSERT INTO ElectionGroups (election_id, group_name, score, description) VALUES
+(3, 'Western States', 55, 'Electoral votes from western states'),
+(3, 'Eastern States', 70, 'Electoral votes from eastern states'),
+(3, 'Northern States', 45, 'Electoral votes from northern states'),
+(3, 'Southern States', 65, 'Electoral votes from southern states');
+
+-- Election 4 groups (just one group for referendum)
+INSERT INTO ElectionGroups (election_id, group_name, score, description) VALUES
+(4, 'General Population', 1, 'All eligible voters');
+
+-- Insert candidates for each election
+-- Election 1: 3 candidates
+INSERT INTO Candidates (user_id, election_id, party, bio, campaign_platform, photo_url, is_referendum_option, option_label) VALUES
+(1, 1, 'Progressive Party', 'Lifelong resident with 10 years of public service experience', 'Focus on sustainable development and affordable housing', 'candidate1.jpg', FALSE, NULL),
+(2, 1, 'Conservative Union', 'Business owner and community volunteer', 'Fiscal responsibility and public safety', 'candidate2.jpg', FALSE, NULL),
+(3, 1, 'Independent Coalition', 'Former teacher and neighborhood advocate', 'Education funding and infrastructure improvement', 'candidate3.jpg', FALSE, NULL);
+
+-- Election 2: 4 candidates (multi-choice, choose 2)
+INSERT INTO Candidates (user_id, election_id, party, bio, campaign_platform, photo_url, is_referendum_option, option_label) VALUES
+(4, 2, 'Education First', 'School administrator with 15 years experience', 'Curriculum reform and teacher support', 'candidate4.jpg', FALSE, NULL),
+(5, 2, 'Parents Alliance', 'PTA president and education activist', 'Parent involvement and extracurricular activities', 'candidate5.jpg', FALSE, NULL),
+(6, 2, 'Community Voice', 'Local business owner and education donor', 'Public-private partnerships for schools', 'candidate6.jpg', FALSE, NULL),
+(7, 2, 'Future Focus', 'Former principal and education policy expert', 'Technology integration and career readiness', 'candidate7.jpg', FALSE, NULL);
+
+-- Election 3: 4 candidates (electoral college)
+INSERT INTO Candidates (user_id, election_id, party, bio, campaign_platform, photo_url, is_referendum_option, option_label) VALUES
+(8, 3, 'Liberal Party', 'Current senator with legislative experience', 'Healthcare reform and environmental protection', 'candidate8.jpg', FALSE, NULL),
+(9, 3, 'Conservative Party', 'State governor and former business executive', 'Economic growth and traditional values', 'candidate9.jpg', FALSE, NULL),
+(10, 3, 'Reform Party', 'Entrepreneur and political outsider', 'Government efficiency and technological innovation', 'candidate10.jpg', FALSE, NULL),
+(11, 3, 'Green Alliance', 'Environmental scientist and community organizer', 'Climate action and sustainable development', 'candidate11.jpg', FALSE, NULL);
+
+-- Election 4: Referendum options (Yes/No)
+INSERT INTO Candidates (user_id, election_id, party, bio, campaign_platform, photo_url, is_referendum_option, option_label) VALUES
+(NULL, 4, NULL, NULL, 'Increase sales tax by 0.5% to fund public transit improvements', NULL, TRUE, 'Yes'),
+(NULL, 4, NULL, NULL, 'Keep current funding levels with no tax increase', NULL, TRUE, 'No');
 

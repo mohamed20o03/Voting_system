@@ -1,5 +1,35 @@
 USE voting_system;
 
+-- Geographic hierarchy tables
+CREATE TABLE Countries (
+    code VARCHAR(3) PRIMARY KEY COMMENT 'Country code (ISO)',
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE States_Governorates (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    country_code VARCHAR(3) NOT NULL,
+    FOREIGN KEY (country_code) REFERENCES Countries(code) ON DELETE CASCADE,
+    UNIQUE KEY (country_code, name)
+);
+
+CREATE TABLE Cities (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    states_governorates_id INT NOT NULL,
+    FOREIGN KEY (states_governorates_id) REFERENCES States_Governorates(id) ON DELETE CASCADE,
+    UNIQUE KEY (states_governorates_id, name)
+);
+
+CREATE TABLE Districts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    city_id INT NOT NULL,
+    FOREIGN KEY (city_id) REFERENCES Cities(id) ON DELETE CASCADE,
+    UNIQUE KEY (city_id, name)
+);
+
 CREATE TABLE Users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -8,53 +38,22 @@ CREATE TABLE Users (
     gender ENUM('male', 'female') NOT NULL,
     birth_date DATE NOT NULL,
     email VARCHAR(100) UNIQUE,
+    password VARCHAR(255) NOT NULL,
     phone VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     current_address VARCHAR(255),
-    is_active BOOLEAN DEFAULT TRUE,
     account_verified BOOLEAN DEFAULT FALSE,
     profile_image VARCHAR(255)
 );
 
--- user -> NID    NID -> nationality
-CREATE TABLE Nationalities (
-    national_id VARCHAR(20) PRIMARY KEY,
+-- The address listed below is the permanent address as registered on the national ID card of each nationality held by the individual.
+CREATE TABLE locates (
     user_id INT NOT NULL,
-    nationality_address_id INT NOT NULL,
+    district_id INT NOT NULL,
+    national_id VARCHAR(20) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (nationality_address_id) REFERENCES NationalityAddresses(id) ON DELETE CASCADE
+    FOREIGN KEY (district_id) REFERENCES Districts(id) ON DELETE CASCADE,
+    PRIMARY KEY (district_id, national_id)
 );
 
-
-
-CREATE TABLE UserEducation (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    education_level_id INT NOT NULL,
-    major VARCHAR(100),
-    start_date DATE NOT NULL,
-    end_date DATE,
-    is_current BOOLEAN DEFAULT FALSE,
-    gpa DECIMAL(3,2),
-    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (education_level_id) REFERENCES EducationLevels(id) ON DELETE CASCADE,
-    CHECK (end_date IS NULL OR end_date >= start_date)
-);
-
-CREATE TABLE EnrolledIN (
-    user_id INT NOT NULL,
-    job_id INT NOT NULL,
-    organization_id INT NOT NULL,
-    seniority_level ENUM('Entry Level', 'Junior', 'Mid Level', 'Senior', 'Lead', 'Manager', 'Director', 'Executive') NOT NULL,
-    start_date DATE NOT NULL,
-    end_date DATE,
-    PRIMARY KEY (user_id, job_id, organization_id, start_date),
-    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (job_id) REFERENCES Jobs(id) ON DELETE CASCADE,
-    FOREIGN KEY (organization_id) REFERENCES Organizations(id) ON DELETE CASCADE,
-    CONSTRAINT check_work_dates CHECK (end_date IS NULL OR end_date >= start_date)
-);
-
-
-select '4 user ok';
+select 'user ok';

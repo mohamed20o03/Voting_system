@@ -1,65 +1,51 @@
-USE voting_system;
 
--- For Infrastructure Referendum
-INSERT INTO ElectionGroups (election_id, group_name, description, score) VALUES
-(4, 'Urban Zone', 'City center and immediate surroundings', 1),
-(4, 'Rural Zone', 'Outlying areas of the jurisdiction', 1);
+-- For Election 4 (Referendum)
 
-
-
-INSERT INTO Candidates (user_id, election_id, group_id, position, party, bio, campaign_platform, is_referendum_option, option_label) VALUES
-(NULL, 4, NULL, NULL, NULL, NULL, 'Support the proposed infrastructure project', TRUE, 'Yes'),
-(NULL, 4, NULL, NULL, NULL, NULL, 'Oppose the proposed infrastructure project', TRUE, 'No');
-
-
-
-
--- Votes for Infrastructure Referendum
--- Assign users to groups for this referendum (only 15 users)
-INSERT INTO Votes (user_id, election_id, group_id, timestamp, ip_address, device_info, is_verified, verification_method) VALUES
--- Urban Zone voters
-(1, 4, 12, '2024-09-01 09:00:00', '192.168.1.1', 'Chrome/Windows', TRUE, 'ID Verification'),
-(3, 4, 12, '2024-09-01 09:15:00', '192.168.1.3', 'Edge/Windows', TRUE, 'ID Verification'),
-(5, 4, 12, '2024-09-01 09:30:00', '192.168.1.5', 'Firefox/Windows', TRUE, 'ID Verification'),
-(7, 4, 12, '2024-09-01 09:45:00', '192.168.1.7', 'Chrome/Windows', TRUE, 'ID Verification'),
-(9, 4, 12, '2024-09-01 10:00:00', '192.168.1.9', 'Chrome/Windows', TRUE, 'ID Verification'),
-(11, 4, 12, '2024-09-01 10:15:00', '192.168.1.11', 'Firefox/Windows', TRUE, 'ID Verification'),
-(13, 4, 12, '2024-09-01 10:30:00', '192.168.1.13', 'Firefox/Linux', TRUE, 'ID Verification'),
-(15, 4, 12, '2024-09-01 10:45:00', '192.168.1.15', 'Firefox/Linux', TRUE, 'ID Verification'),
--- Rural Zone voters
-(2, 4, 13, '2024-09-01 09:10:00', '192.168.1.2', 'Safari/Mac', TRUE, 'ID Verification'),
-(4, 4, 13, '2024-09-01 09:25:00', '192.168.1.4', 'Chrome/Windows', TRUE, 'ID Verification'),
-(6, 4, 13, '2024-09-01 09:40:00', '192.168.1.6', 'Chrome/Mac', TRUE, 'ID Verification'),
-(8, 4, 13, '2024-09-01 09:55:00', '192.168.1.8', 'Safari/Mac', TRUE, 'ID Verification'),
-(10, 4, 13, '2024-09-01 10:10:00', '192.168.1.10', 'Safari/iOS', TRUE, 'ID Verification'),
-(12, 4, 13, '2024-09-01 10:25:00', '192.168.1.12', 'Chrome/Mac', TRUE, 'ID Verification'),
-(14, 4, 13, '2024-09-01 10:40:00', '192.168.1.14', 'Safari/Mac', TRUE, 'ID Verification');
-
--- Vote details for Referendum
-INSERT INTO VoteDetails (vote_id, candidate_id, preference_order) VALUES
--- Urban Zone votes ("Yes" is candidate_id 19, "No" is candidate_id 20)
-(61, 18, 1), -- Yes
-(62, 18, 1), -- Yes
-(63, 19, 1), -- No
-(64, 18, 1), -- Yes
-(65, 19, 1), -- Yes
-(66, 19, 1), -- No
-(67, 18, 1), -- Yes
-(68, 19, 1), -- No
--- Rural Zone votes
-(69, 19, 1), -- No
-(70, 19, 1), -- No
-(71, 18, 1), -- Yes
-(72, 19, 1), -- No
-(73, 19, 1), -- No
-(74, 18, 1), -- Yes
-(75, 19, 1); -- No
+-- General Population Group (includes all districts)
+INSERT INTO GroupDistricts (group_id, district_id, election_id) VALUES
+(12, 1, 4), -- Downtown LA
+(12, 2, 4), -- Hollywood
+(12, 3, 4), -- Mission District SF
+(12, 4, 4), -- SoMa
+(12, 5, 4), -- Manhattan
+(12, 6, 4), -- Brooklyn
+(12, 7, 4), -- Downtown Houston
+(12, 8, 4), -- Uptown Dallas
+(12, 9, 4), -- South Beach Miami
+(12, 10, 4), -- Disney Area Orlando
+(12, 11, 4), -- Downtown Toronto
+(12, 12, 4), -- East End Ottawa
+(12, 13, 4), -- West End London
+(12, 14, 4), -- City Centre Manchester
+(12, 15, 4), -- Old Town Edinburgh
+(12, 16, 4), -- West End Glasgow
+(12, 17, 4), -- CBD Sydney
+(12, 18, 4), -- Northern Beaches Newcastle
+(12, 19, 4), -- Central Brisbane
+(12, 20, 4); -- Surfers Paradise Gold Coast
 
 
-SELECT v.group_id, u.first_name AS 'user', c.option_label  
-FROM VoteDetails vd
-LEFT JOIN Candidates c ON c.id = vd.candidate_id
-LEFT JOIN Votes v ON v.id = vd.vote_id
-LEFT JOIN Users u ON u.id = v.user_id
-WHERE v.election_id = 4
-ORDER BY v.group_id;
+-- Simulating votes for Election 4
+INSERT INTO VoteDetails (hashed_user_id, group_id, timestamp) VALUES
+-- General Population votes (Group 12)
+(SHA2(7, 256), 12, '2025-08-10 09:15:00'),
+(SHA2(8, 256), 12, '2025-08-10 10:20:00'),
+(SHA2(9, 256), 12, '2025-08-10 11:30:00'),
+(SHA2(10, 256), 12, '2025-08-10 12:45:00'),
+(SHA2(11, 256), 12, '2025-08-10 13:30:00'),
+(SHA2(12, 256), 12, '2025-08-10 14:15:00'),
+(SHA2(13, 256), 12, '2025-08-10 15:00:00'),
+(SHA2(14, 256), 12, '2025-08-10 15:45:00');
+
+
+-- For Election 4 (referendum)
+INSERT INTO encrypted_candidates (vote_id, encrypted_candidate, iv) VALUES
+(48, 'yCV1T+W8klkbx/DsvYqbow==', UNHEX('000102030405060708090A0B0C0D0E0F')),
+(49, 'PuWx91yn70n2JRafFhxb4Q==', UNHEX('000102030405060708090A0B0C0D0E0F')),
+(50, 'yCV1T+W8klkbx/DsvYqbow==', UNHEX('000102030405060708090A0B0C0D0E0F')),
+(51, 'PuWx91yn70n2JRafFhxb4Q==', UNHEX('000102030405060708090A0B0C0D0E0F')),
+(52, 'yCV1T+W8klkbx/DsvYqbow==', UNHEX('000102030405060708090A0B0C0D0E0F')),
+(53, 'yCV1T+W8klkbx/DsvYqbow==', UNHEX('000102030405060708090A0B0C0D0E0F')),
+(54, 'PuWx91yn70n2JRafFhxb4Q==', UNHEX('000102030405060708090A0B0C0D0E0F')),
+(55, 'yCV1T+W8klkbx/DsvYqbow==', UNHEX('000102030405060708090A0B0C0D0E0F'));
+
