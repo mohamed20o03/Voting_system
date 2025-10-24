@@ -1,0 +1,181 @@
+Governorate,City,District
+Cairo,Cairo,Downtown
+Cairo,Cairo,Zamalek
+Cairo,Cairo,Heliopolis
+Cairo,Cairo,Nasr City
+Cairo,Cairo,Maadi
+Cairo,Cairo,Mohandessin
+Cairo,Cairo,Dokki
+Cairo,Cairo,Shubra
+Cairo,Cairo,Ain Shams
+Cairo,Cairo,El Marg
+Cairo,Cairo,6th of October City
+Cairo,Cairo,New Cairo
+Cairo,Cairo,Madinaty
+Cairo,Cairo,Badr City
+Alexandria,Alexandria,Al Montazah
+Alexandria,Alexandria,Al Gomrok
+Alexandria,Alexandria,Al Attarin
+Alexandria,Alexandria,Al Amreya
+Alexandria,Alexandria,Al Agamy
+Alexandria,Alexandria,Borg El Arab
+Alexandria,Alexandria,El Raml
+Alexandria,Alexandria,Miami
+Alexandria,Alexandria,Sidi Gaber
+Alexandria,Alexandria,Smouha
+Alexandria,Alexandria,Kafr Abdo
+Alexandria,Alexandria,Laurent
+Alexandria,Alexandria,Mansheya
+Alexandria,Alexandria,San Stefano
+Giza,Giza,Haram
+Giza,Giza,Dokki
+Giza,Giza,Agouza
+Giza,Giza,Imbaba
+Giza,Giza,Sheikh Zayed City
+Giza,6th of October,1st District
+Giza,6th of October,2nd District
+Giza,6th of October,3rd District
+Giza,El Sheikh Zayed,Downtown
+Giza,El Sheikh Zayed,Greenland
+Luxor,Luxor,Karnak
+Luxor,Luxor,Al Awameya
+Luxor,Luxor,Al Bayadiya
+Luxor,Esna,Downtown
+Luxor,Esna,New Esna
+Luxor,Armant,Downtown
+Luxor,Armant,Al Mahrousa
+Aswan,Aswan,Abu Simbel
+Aswan,Aswan,Kom Ombo
+Aswan,Aswan,Daraw
+Aswan,Nasr Al Nuba,Downtown
+Aswan,Nasr Al Nuba,Al Salam
+Aswan,Kalabsha,Downtown
+Aswan,Kalabsha,New Kalabsha
+Port Said,Port Said,Al Arab
+Port Said,Port Said,Al Ganoub
+Port Said,Port Said,Port Fouad
+Port Said,Port Said,El Dawahi
+Port Said,Port Said,South 2
+Port Said,Port Said,El Manakh
+Port Said,Port Said,East
+Port Said,Port Said,El Manasra
+Port Said,Port Said,El Zohour
+Port Said,Port Said,El Emirates
+Port Said,New Port Said,1st District
+Port Said,New Port Said,2nd District
+Suez,Suez,Al Arbaeen
+Suez,Suez,Attaka
+Suez,Suez,Port Tawfik
+Suez,New Suez,Downtown
+Suez,New Suez,Al Salam
+Ismailia,Ismailia,Al Qantara
+Ismailia,Ismailia,Fayed
+Ismailia,Ismailia,Al Tal Al Kabir
+Ismailia,New Ismailia,Downtown
+Ismailia,New Ismailia,Al Amal
+Damietta,Damietta,Al Zarqa
+Damietta,Damietta,Ras El Bar
+Damietta,Damietta,New Damietta
+Damietta,Faraskur,Downtown
+Damietta,Faraskur,Al Salam
+Dakahlia,Mansoura,Al Salam
+Dakahlia,Mansoura,Al Sahab
+Dakahlia,Mansoura,New Mansoura
+Dakahlia,Mit Ghamr,Downtown
+Dakahlia,Mit Ghamr,Al Amal
+Dakahlia,Aga,Downtown
+Dakahlia,Aga,Al Salam
+Gharbia,Tanta,Al Mahrousa
+Gharbia,Tanta,Al Saa
+Gharbia,Tanta,New Tanta
+Gharbia,El Mahalla El Kubra,Downtown
+Gharbia,El Mahalla El Kubra,Al Salam
+Gharbia,Zefta,Downtown
+Gharbia,Zefta,Al Amal
+Sharqia,Zagazig,Downtown
+Sharqia,Zagazig,Al Salam
+Sharqia,Zagazig,New Zagazig
+Sharqia,10th of Ramadan,1st District
+Sharqia,10th of Ramadan,2nd District
+Sharqia,Belbeis,Downtown
+Sharqia,Belbeis,Al Amal
+Monufia,Shebin El Kom,Downtown
+Monufia,Shebin El Kom,Al Salam
+Monufia,Sadat City,1st District
+Monufia,Sadat City,2nd District
+Monufia,Ashmoun,Downtown
+Monufia,Ashmoun,Al Amal
+Qalyubia,Banha,Downtown
+Qalyubia,Banha,Al Salam
+Qalyubia,Qalyub,Downtown
+Qalyubia,Qalyub,Al Amal
+Qalyubia,Shubra El Kheima,Downtown
+Qalyubia,Shubra El Kheima,Al Salam
+Beheira,Damanhur,Downtown
+Beheira,Damanhur,Al Salam
+Beheira,Kafr El Dawwar,Downtown
+Beheira,Kafr El Dawwar,Al Amal
+Beheira,Rashid (Rosetta),Downtown
+Beheira,Rashid (Rosetta),Al Salam
+Kafr El Sheikh,Kafr El Sheikh,Downtown
+Kafr El Sheikh,Kafr El Sheikh,Al Salam
+Kafr El Sheikh,Desouk,Downtown
+Kafr El Sheikh,Desouk,Al Amal
+Kafr El Sheikh,Fuwa,Downtown
+Kafr El Sheikh,Fuwa,Al Salam
+Minya,Minya,Downtown
+Minya,Minya,Al Salam
+Minya,New Minya,1st District
+Minya,New Minya,2nd District
+Minya,Malawi,Downtown
+Minya,Malawi,Al Amal
+Asyut,Asyut,Downtown
+Asyut,Asyut,Al Salam
+Asyut,New Asyut,1st District
+Asyut,New Asyut,2nd District
+Asyut,Abnub,Downtown
+Asyut,Abnub,Al Amal
+Sohag,Sohag,Downtown
+Sohag,Sohag,Al Salam
+Sohag,New Sohag,1st District
+Sohag,New Sohag,2nd District
+Sohag,Akhmim,Downtown
+Sohag,Akhmim,Al Amal
+Qena,Qena,Downtown
+Qena,Qena,Al Salam
+Qena,New Qena,1st District
+Qena,New Qena,2nd District
+Qena,Nag Hammadi,Downtown
+Qena,Nag Hammadi,Al Amal
+Red Sea,Hurghada,Downtown
+Red Sea,Hurghada,El Dahar
+Red Sea,Hurghada,Sakkala
+Red Sea,Marsa Alam,Downtown
+Red Sea,Marsa Alam,Port Ghalib
+Red Sea,El Gouna,Downtown
+Red Sea,El Gouna,Marina
+New Valley,Kharga,Downtown
+New Valley,Kharga,Al Salam
+New Valley,Dakhla,Downtown
+New Valley,Dakhla,Al Amal
+New Valley,Farafra,Downtown
+New Valley,Farafra,Al Salam
+Matrouh,Marsa Matrouh,Downtown
+Matrouh,Marsa Matrouh,Agiba
+Matrouh,El Alamein,Downtown
+Matrouh,El Alamein,Marina
+Matrouh,Siwa,Downtown
+Matrouh,Siwa,Al Amal
+North Sinai,Arish,Downtown
+North Sinai,Arish,Al Salam
+North Sinai,Sheikh Zuweid,Downtown
+North Sinai,Sheikh Zuweid,Al Amal
+North Sinai,Rafah,Downtown
+North Sinai,Rafah,Al Salam
+South Sinai,Sharm El Sheikh,Naama Bay
+South Sinai,Sharm El Sheikh,Hadaba
+South Sinai,Sharm El Sheikh,Old Market
+South Sinai,Dahab,Downtown
+South Sinai,Dahab,Asala
+South Sinai,Saint Catherine,Downtown
+South Sinai,Saint Catherine,Al Salam
