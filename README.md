@@ -39,7 +39,7 @@ A secure and scalable MySQL-based voting system that supports multiple election 
 - `Test*.sql` — test scenarios for popular, electoral and referendum elections.
 - `test.sql` — additional test script.
 
-There is also a small `libs/` folder and a `countries/egypt.csv` file used by the insert scripts.
+There is also a `countries/egypt.csv` file used by the insert scripts.
 
 ## Database schema overview (high level)
 
